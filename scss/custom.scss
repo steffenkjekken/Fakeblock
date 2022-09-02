@@ -1,6 +1,24 @@
-$body-bg: #fed;
-$body-color: #34a;
-$primary: rgb(157, 18, 155);
-$secondary: green;
+$body-bg: rgb(255, 238, 221);
+$body-color: rgb(30, 30, 30);
+$primary: rgb(92, 168, 76);
+$secondary: rgb(223, 161, 45);
+
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+$new-breakpoints: (
+    xl: 1280px,
+    xxl: 1600px
+);
+
+$grid-breakpoints: map-merge($grid-breakpoints, $new-breakpoints);
+
+$new-container-max-widths: (
+  xl: 1220px,
+  xxl: 1520px
+);
+
+$container-max-widths: map-merge($container-max-widths, $new-container-max-widths);
+
 
 @import"../node_modules/bootstrap/scss/bootstrap";
