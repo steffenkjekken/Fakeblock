@@ -1,12 +1,15 @@
-$body-bg: rgb(255, 238, 221);
+$body-bg: rgb(255, 245, 234);
 $body-color: rgb(30, 30, 30);
 $primary: rgb(92, 168, 76);
-$secondary: rgb(223, 161, 45);
+$secondary: rgb(245, 245, 245);
 
 @import '../node_modules/bootstrap/scss/functions';
 @import '../node_modules/bootstrap/scss/variables';
 
 $new-breakpoints: (
+    sm: 580px,
+    md: 810px,
+    lg: 1000px,
     xl: 1280px,
     xxl: 1600px
 );
@@ -14,8 +17,8 @@ $new-breakpoints: (
 $grid-breakpoints: map-merge($grid-breakpoints, $new-breakpoints);
 
 $new-container-max-widths: (
-  xl: 1220px,
-  xxl: 1520px
+    xl: 1220px,
+    xxl: 1520px
 );
 
 $container-max-widths: map-merge($container-max-widths, $new-container-max-widths);

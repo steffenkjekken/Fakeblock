@@ -13,32 +13,48 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Fakeblock</a>
+      <a class="navbar-brand px-md-3 md-py-2 text-secondary" href="index.html"><p class="h4">Fakeblock</p></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active text-secondary" aria-current="page" href="#">Home</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <div class="px-3 py-2 border-bottom mb-3 bg-light">
-    <div class="container d-flex flex-wrap">
-      <form class="col-10 col-lg-5 mb-1 mt-1 mb-lg-0 me-lg-auto" role="search">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 d-none d-lg-flex">
+        <li>
+          <a href="homepage.html" class="nav-link text-secondary">
+            <i class="bi-globe text-primary h5"></i>
+          </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-secondary">
+              <i class="bi-app-indicator text-primary h5"></i>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="nav-link text-secondary">
+              <i class="bi-person-circle text-primary h5"></i>
+            </a>
+          </li>
+    </ul>
+      <form class="col-12 col-md-4 col-lg-auto mb-1 mt-1 mb-lg-0 ms-md-auto" role="search">
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
-      <div class="col-2 col-lg-3 mb-1 mt-1 mb-lg-0 me-lg-auto">
-      <a href="#" class="btn btn-primary">Search</a>
-    </div>
+      <a href="#" class="btn btn-primary text-secondary mx-1 h-auto d-none d-md-block">Search</a>
     </div>
   </div>
 <main>
 <div class="row justify-content-center">
-    <div class="px-3 py-2 col-md-3 flex-grow-0">
+    <div class="px-3 py-2 col-md-4 col-xl-4 flex-grow-0">
+      <div class="position-sticky" style="top: 2rem;">
         <div class="card">
             <div class="card-body">
             <p class="card-text">Whats on your mind ?</p>
@@ -46,11 +62,12 @@
                 <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 4rem"></textarea>
                 <label for="floatingTextarea2">Write something</label>
             </div>
-            <a href="#" class="btn btn-primary mt-3">Post</a>
+            <a href="#" class="btn btn-primary text-secondary float-end mt-3">Post</a>
             </div>
         </div>
+      </div>
     </div>
-<div class=" col-md-7 d-grid gap-3">
+<div class=" col-md-6 col-lg-7 col-xl-6 d-grid gap-3">
     <div class="card flex-row">
         <div class="col-3 col-lg-2 p-3">
             <img src="https://xsgames.co/randomusers/assets/avatars/male/73.jpg" 
@@ -79,6 +96,24 @@
         </div>
     </div>
     <div class="card flex-row">
+      <div class="col-3 col-lg-2 p-3">
+          <img src="https://xsgames.co/randomusers/assets/avatars/male/73.jpg" 
+          class="img-thumbnail float-start rounded-circle ratio-1x1"  alt="...">
+      </div>
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+  </div>
+  <div class="card flex-row">
+    <div class="col-3 col-lg-2 p-3">
+        <img src="https://xsgames.co/randomusers/assets/avatars/male/73.jpg" 
+        class="img-thumbnail float-start rounded-circle ratio-1x1"  alt="...">
+    </div>
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+</div>
+    <div class="card flex-row">
         <div class="col-3 col-lg-2 p-3">
             <img src="https://xsgames.co/randomusers/assets/avatars/male/73.jpg" 
             class="img-thumbnail float-start rounded-circle ratio-1x1"  alt="...">
@@ -87,6 +122,24 @@
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
     </div>
+    <div class="card flex-row">
+      <div class="col-3 col-lg-2 p-3">
+          <img src="https://xsgames.co/randomusers/assets/avatars/male/73.jpg" 
+          class="img-thumbnail float-start rounded-circle ratio-1x1"  alt="...">
+      </div>
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+  </div>
+  <div class="card flex-row">
+    <div class="col-3 col-lg-2 p-3">
+        <img src="https://xsgames.co/randomusers/assets/avatars/male/73.jpg" 
+        class="img-thumbnail float-start rounded-circle ratio-1x1"  alt="...">
+    </div>
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+</div>
 </div>
 </div>
 </main>
