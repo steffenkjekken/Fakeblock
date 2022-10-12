@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="auth.js"></script>
+    <script src="posts.js" defer></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-primary">
@@ -45,7 +47,14 @@
             </a>
           </li>
     </ul>
-      <form class="col-12 col-md-4 col-lg-auto mb-1 mt-1 mb-lg-0 ms-md-auto" role="search">
+    <select class="custom-select d-block col-2 ms-md-auto" id="period" required="">
+      <option value="">View posts from...</option>
+      <option>Today</option>
+      <option>Yesterday</option>
+      <option>Last Week</option>
+      <option>Last Month</option>
+    </select>
+      <form class="col-12 col-md-4 col-lg-auto mb-1 mt-1 mb-lg-0 ms-md-2 h-80" role="search">
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
       <a href="#" class="btn btn-primary text-secondary mx-1 h-auto d-none d-md-block">Search</a>
@@ -58,16 +67,20 @@
         <div class="card">
             <div class="card-body">
             <p class="card-text">Whats on your mind ?</p>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 4rem"></textarea>
+            <form class="form-floating" id="postform">
+                <textarea class="form-control" placeholder="Leave a comment here" id="titleInput" style="height: 8rem"></textarea>
+                <textarea class="form-control" placeholder="Leave a comment here" id="postInput" style="height: 8rem"></textarea>
                 <label for="floatingTextarea2">Write something</label>
+            <button class="btn btn-primary text-secondary float-end mt-3" id="submitBtn" type="submit">Post</a>
+            </form>
+            <div id="errorMsg">
+
             </div>
-            <a href="#" class="btn btn-primary text-secondary float-end mt-3">Post</a>
             </div>
         </div>
       </div>
     </div>
-<div class=" col-md-6 col-lg-7 col-xl-6 d-grid gap-3">
+<div class=" col-md-6 col-lg-7 col-xl-6 d-grid gap-3" id="container">
     <div class="card flex-row">
         <div class="col-3 col-lg-2 p-3">
             <img src="https://xsgames.co/randomusers/assets/avatars/male/73.jpg" 
