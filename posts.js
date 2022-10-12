@@ -82,12 +82,9 @@ async function postPost(url, data) {
         body: JSON.stringify(data),
         };
         console.log(url, data, options);
-        const response = await fetch(url, options);
-        console.log(response);
-        const answer = await response.json();
+        await fetch(url, options);
         if (response.status === 200) {
-            console.log("bra");
-            window.location = "/homepage.html";
+            document.location.reload();
             getAllPosts(getAllPostsURL);
           }
           console.log(answer);
