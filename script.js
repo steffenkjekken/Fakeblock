@@ -174,7 +174,7 @@ else {
         form.reset();
         console.log ("Form submitted");
 
-        errorDiv.innerHTML = "<span style='color: green'>Form submitted (not, really...)</span>";
+        errorDiv.innerHTML = "<p style='color: green'>Form submitted</p>";
         // form.submit(); // Comment out to prevent form from _actually_ being submitted
     }
 }
