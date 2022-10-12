@@ -149,6 +149,7 @@ async function loginUser (url, data) {
 
 loginUser(loginURL, loginData);
 
+/*Få på plass bedre validering når tid*/
 var validated = true; // Assume the best
 var errorMessage = "";
 if (!email) { 
@@ -179,8 +180,6 @@ else {
     }
 }
 );
-
-
 
 emailInput.addEventListener('keyup', addToSessionStorage); 
 passwordInput.addEventListener('keyup', addToSessionStorage);

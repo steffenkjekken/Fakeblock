@@ -62,7 +62,7 @@ const listPosts = (posts, out) => {
     });
 };
 
-let postCollection = [];
+let allPosts = [];
 
 async function getAllPosts (url) {
     try {
@@ -81,7 +81,7 @@ async function getAllPosts (url) {
         //console.log(response);
         const posts = await response.json();
         console.log(posts);
-        postCollection = posts;
+        allPosts = posts;
         listPosts(posts, outDiv)
 
     } catch(error) {
@@ -168,7 +168,7 @@ function filterPost () {
     const filterQuery = searchBar.value;
     console.log(filterQuery);
 
-    const filtered = postCollection.filter((post)=>{
+    const filtered = allPosts.filter((post)=>{
         const filteredAuthor = post.author.name.toUpperCase().indexOf(filterQuery.toUpperCase().trim()) > -1;
         const filteredPost = post.title.toUpperCase().indexOf(filterQuery.toUpperCase().trim()) > -1;
 
