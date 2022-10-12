@@ -2,7 +2,7 @@ const API_BASE_URL = "https://nf-api.onrender.com/api/v1";
 const allPostsEndpoint = "/social/posts"; // GET
 /*export url when time */
 
-
+const out = document.querySelector("div#container")
 const postForm = document.querySelector("form#postform");
 const titleInput = document.getElementById("titleInput");
 const bodyInput = document.getElementById("postInput");
@@ -12,7 +12,6 @@ const submitBtn = document.getElementById("submitBtn")
 const getAllPostsURL = `${API_BASE_URL}${allPostsEndpoint}`;
 console.log(getAllPostsURL)
 
-const out = document.querySelector("div#container")
 
 const listPosts = (posts, out) => {
     //console.log (posts);
@@ -49,15 +48,17 @@ async function getAllPosts (url) {
         const options = {
             method: 'GET', 
             headers : {
+                'Access-Control-Allow-Headers': "*",
                  "Content-Type": "application/json",
                 Authorization: `Bearer ${accessToken}`,
-            }
-        }
+            },
+        };
         //console.log(url, options);
 
         const response = await fetch(url, options); 
-        console.log(accessToken);
+        //console.log(response);
         const posts = await response.json();
+        console.log(posts);
         postCollection = posts;
         listPosts(posts, out)
 
@@ -81,14 +82,17 @@ async function postPost(url, data) {
         body: JSON.stringify(data),
         };
         console.log(url, data, options);
-        // opp i api
         const response = await fetch(url, options);
         console.log(response);
         const answer = await response.json();
-        getAllPosts(getAllPostsURL);
-        console.log(answer);
+        if (response.status === 200) {
+            console.log("bra");
+            window.location = "/homepage.html";
+            getAllPosts(getAllPostsURL);
+          }
+          console.log(answer);
     } catch (error) {
-        console.warn(error);
+        console.log(error);
     }
 }
 
