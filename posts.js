@@ -31,10 +31,11 @@ const listPosts = (posts, out) => {
           Dropdown link
         </button>
         <div class="dropdown-menu" aria-labelledby="Edit">
-          <button class="dropdown-item" id="updateBtn" data-update="${object.id}">Update</a>
+          <a href="updatepost.html?id=${object.id}" class="btn btn-primary dropdown-item" id="updateBtn" data-update="${object.id}">Edit</a>
           <button class="dropdown-item" id="deleteBtn" data-delete="${object.id}">Delete</a>
         </div>
-      </div>`
+      </div>
+      `
         
         newDivs += `
         <div class="card p-2 mt-1 d-flex position-relative">
@@ -51,6 +52,7 @@ const listPosts = (posts, out) => {
         */
     }
     outDiv.innerHTML = newDivs;
+    
 
     const deleteBtn = document.querySelectorAll("button#deleteBtn")
 
@@ -60,6 +62,7 @@ const listPosts = (posts, out) => {
             deletePosts(getAllPostsURL + id)
         })
     });
+
 };
 
 let allPosts = [];

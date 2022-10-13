@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="profile.js" defer></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-primary">
-    <div class="container-fluid">
-      
-      <a class="navbar-brand px-md-3 md-py-2 text-secondary" href="index.html"><p class="h4">Fakeblock</p></a>
-      
+    <div class="container-fluid">  
+      <a class="navbar-brand px-md-3 md-py-2 text-secondary" href="homepage.html"><p class="h4">Fakeblock</p></a>   
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,27 +25,29 @@
           </li>
         </ul>
       </div>
-    </div>
-  </nav>
-  <div class="px-3 py-2 border-bottom mb-3 bg-light">
-    <div class="container d-flex flex-wrap justify-content-center">
-        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 d-none d-lg-flex">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <ul class="nav col-12 col-lg-auto my-2 justify-content ms-md-auto d-none d-lg-flex">
             <li>
               <a href="homepage.html" class="nav-link text-secondary">
-                <i class="bi-globe text-primary h5"></i>
+                <i class="bi-globe text-secondary h5"></i>
               </a>
             </li>
             <li>
                 <a href="#" class="nav-link text-secondary">
-                  <i class="bi-app-indicator text-primary h5"></i>
+                  <i class="bi-app-indicator text-secondary h5"></i>
                 </a>
               </li>
               <li>
-                <a href="profile.html" class="nav-link text-secondary">
-                  <i class="bi-person-circle text-primary h5"></i>
+                <a href="profile.html" class="nav-link text-secondary ml-5">
+                  <i class="bi-person-circle text-secondary h5"></i>
                 </a>
               </li>
         </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="px-3 py-2 border-bottom mb-3 bg-light">
+    <div class="container d-flex flex-wrap justify-content-center">
       <form class="col-12 col-md-4 col-lg-auto mb-1 mt-1 mb-lg-0 ms-md-auto" role="search">
         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
       </form>
@@ -62,8 +63,8 @@
             class="img-thumbnail float-start rounded-circle ratio-1x1"  alt="...">
         </div>
         <div class="card-body row-2">
-        <div class="p-3 text-center text-sm-start">
-          <h2 class="card-text row-3">Anderson Brasko</h2>  
+        <div class="p-3 text-center text-sm-start" id="profilecard">
+          <h2 class="card-text row-3">U</h2>  
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><strong>Works:</strong> SPAR Kronstad</li>
             <li class="list-group-item"><strong>Lives:</strong> Kronstad, Bergen</li>
