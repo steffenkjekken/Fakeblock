@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakeblock | Update Post</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="auth.js" defer></script>
+    <script src="./js/updatepost.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand px-md-3 md-py-2 text-secondary" href="homepage.html"><p class="h4">Fakeblock</p></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse my-md-0 d-lg-none" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+              <li class="nav-item">
+                <a class="nav-link active text-secondary" aria-current="page" href="profile.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-secondary" aria-current="page" href="homepage.html">Feed</a>
+              </li>
+              <li class="nav-item" id="logout">
+                <a class="nav-link active text-secondary" aria-current="page" href="index.html">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+<main>
+<div class="row justify-content-center">
+<div class="col-8 d-grid gap-3" id="editPost">
+    <div class="px-3 py-2">
+        <div class="position-sticky" style="top: 2rem;">
+          <div class="card">
+              <div class="card-body">
+              <p class="card-text">Update your post</p>
+              <form class="form-floating" id="postform">
+                  <textarea type="text" class="rounded-3 p-2 border bg-light" id="titleInput" style="height: 2.9rem; resize:none" ></textarea>
+                  <textarea rows="4" class="form-control pt-3 mt-2 bg-light" placeholder="Leave a comment here" id="bodyInput" style="height:100%; resize:none";></textarea>
+                  <textarea rows="1" class="form-control pt-2 mt-2 bg-light" placeholder="Image Url" id="imageInput" style="height:100%; resize:none";></textarea>
+                  <button class="btn btn-primary text-secondary float-end mt-3" id="updateBtn">Update</button>
+              </form>
+              </div>
+              <div id="errorMsg">
+  
+              </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+</main>
+ 
+</body>
+</html>

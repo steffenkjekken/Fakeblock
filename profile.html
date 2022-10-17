@@ -4,57 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome! Customize Bootstrap with Sass</title>
+    <title>Fakeblock | Profile</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="./js/auth.js" defer></script>
+    <script src="./js/profile.js" defer></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-primary">
-    <div class="container-fluid">
-      
-      <a class="navbar-brand px-md-3 md-py-2 text-secondary" href="index.html"><p class="h4">Fakeblock</p></a>
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item text-center">
-            <a class="nav-link active text-secondary" aria-current="page" href="homepage.html">Home</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="px-3 py-2 border-bottom mb-3 bg-light">
-    <div class="container d-flex flex-wrap justify-content-center">
-        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 d-none d-lg-flex">
-            <li>
-              <a href="homepage.html" class="nav-link text-secondary">
-                <i class="bi-globe text-primary h5"></i>
-              </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-secondary">
-                  <i class="bi-app-indicator text-primary h5"></i>
-                </a>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand px-md-3 md-py-2 text-secondary" href="homepage.html"><p class="h4">Fakeblock</p></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse my-md-0 d-lg-none" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+              <li class="nav-item">
+                <a class="nav-link active text-secondary" aria-current="page" href="profile.html">Profile</a>
               </li>
-              <li>
-                <a href="profile.html" class="nav-link text-secondary">
-                  <i class="bi-person-circle text-primary h5"></i>
-                </a>
+              <li class="nav-item">
+                <a class="nav-link active text-secondary" aria-current="page" href="homepage.html">Feed</a>
               </li>
-        </ul>
-      <form class="col-12 col-md-4 col-lg-auto mb-1 mt-1 mb-lg-0 ms-md-auto" role="search">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      </form>
-      <a href="#" class="btn btn-primary text-secondary mx-1 h-auto d-none d-md-block">Search</a>
-    </div>
-  </div>
+              <li class="nav-item" id="logout">
+                <a class="nav-link active text-secondary" aria-current="page" href="index.html">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 <main>
-  <div class="container d-grid gap-2 mb-2">
+  <div class="container d-grid gap-2 mb-2 mt-3">
     <div class="container col-md-12 col-lg-8">
     <div class="card flex-xs-column flex-sm-row">
         <div class="col-xs-1 col-sm-4 p-2 align-self-center">
@@ -62,12 +43,12 @@
             class="img-thumbnail float-start rounded-circle ratio-1x1"  alt="...">
         </div>
         <div class="card-body row-2">
-        <div class="p-3 text-center text-sm-start">
-          <h2 class="card-text row-3">Anderson Brasko</h2>  
+        <div class="p-3 text-center text-sm-start" id="profilecard">
+          <h2 class="card-text row-3">U</h2>  
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>Works:</strong> SPAR Kronstad</li>
-            <li class="list-group-item"><strong>Lives:</strong> Kronstad, Bergen</li>
-            <li class="list-group-item"><strong>From:</strong> Molde,Norway</li>
+            <li class="list-group-item" id="followers"><strong>Followers:</strong></li>
+            <li class="list-group-item" id="following"><strong>Following:</strong></li>
+            <li class="list-group-item" id="email"><strong>Email:</strong></li>
           </ul>
         </div>
         </div>
@@ -122,119 +103,12 @@
         </div>
       <div class="col-md-7">
         <div class="list-group list-group-flush border-bottom scrollarea">
-            <a href="/" class="list-group-item list-group-item-action d-flex gap-3 py-3">
+            <a href="" class="list-group-item list-group-item-action d-flex gap-3 py-3">
                 <span class="fs-5 fw-semibold">Posts</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <img src="https://xsgames.co/randomusers/assets/avatars/male/26.jpg" alt="twbs" width="45" height="45" class="rounded-circle flex-shrink-0">
-                <div class="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                        <h5 class="mb-0">Alfonzo Vinod</h6>
-                        <p>Hello my friend</p>
-                    </div>
-                    <small>Today</small>           
-                </div>
-            </a>
+        </div>
+        <div class="myPosts">
+            
         </div>
     </div>
     </div>

@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome! Customize Bootstrap with Sass</title>
+    <title>Fakeblock</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="./js/script.js" defer></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-primary">
@@ -16,6 +17,24 @@
       <a class="navbar-brand px-md-3 text-secondary mx-0 my-0" href="index.html"><p class="h4">Fakeblock</p></a>
     </div>
   </nav>
+  <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.5);;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Profile succesfully registered</h5>
+          <button type="button" class="btn-close" data-dismiss="modal">
+          </button>
+        </div>
+        <div class="modal-body">
+          Redirecting you back to our login page automaticlly in
+          <div id="modal-time"></div> seconds
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="window.location.href='index.html';">Take me to login page now</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
@@ -23,23 +42,26 @@
         <p class="col-lg-10 fs-4">Welcome to the new face of Social Media Today. We’ve been preparing for this day for months now and we’re so excited that it’s finally here.</p>
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
-        <form class="p-4 p-md-5 border rounded-3 bg-light" action="profile.html">
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-            <label for="floatingInput">Email address</label>
+        <form class="p-4 p-md-5 border rounded-3 bg-light" id="loginForm" action="homepage.html">
+          <div class="form mb-3" id="mailDiv">
+            <label for="floatingInput">Your Email</label>
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <small id="emailHelp" style="color:red;" class="form-text text-alert"></small>
           </div>
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+          <div class="form mb-3" id="passwordDiv">
             <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <small id="passwordHelp" style="color:red;" class="form-text text-alert"></small>
           </div>
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit" >Sign in</button>
+          <div class="card-body p-2 mb-2" id="errorMsg"></div>
+          <button class="w-100 btn btn-m btn-primary" id="signIn" type="submit" >Sign in</button>
+          <p class="text-center m-2 fs-6" id="orLine">&#9135;&#9135;&#9135;&#9135;&#9135; or &#9135;&#9135;&#9135;&#9135;&#9135;</p>
+          <button class="w-100 btn btn-m btn-primary" id="firstRegister" type="submit" onclick=changeId() return false;"" >Register</button>
         </form>
+        <div class="card-body" id="errorMsg"></div>
       </div>
+      </div>
+     
     </div>
   </div>
 </body>
