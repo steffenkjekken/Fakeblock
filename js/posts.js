@@ -4,7 +4,6 @@ const createPost = "/social/posts"; // POST
 const author = "?_author=true"; // GET
 const ascOrder = "sort=created&sortOrder=asc&";
 const descOrder = "sort=created&sortOrder=desc&";
-/*export url when time */
 
 const outDiv = document.querySelector("div#container")
 const titleInput = document.getElementById("titleInput");
@@ -117,7 +116,6 @@ async function getAllPosts (url) {
 
 getAllPosts(getAllPostsURL + author);
 
-/*KAOS*/
 async function postPost(url, entry) {
 
     try {
