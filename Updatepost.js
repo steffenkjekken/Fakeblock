@@ -11,6 +11,7 @@ const singlePostURL = `${API_BASE_URL}${singlePostsEndpoint}${id}`;
 const titleInput = document.getElementById("titleInput")
 const bodyInput = document.getElementById("bodyInput")
 const updateBtn = document.getElementById("updateBtn")
+const imgInput = document.getElementById("imageInput")
 
 
 
@@ -30,7 +31,7 @@ async function getSinglePost (url) {
         const response = await fetch(url, options); 
         console.log(response);
         const post = await response.json();
-        //console.log(posts);
+        console.log(post);
         listPost(post)
 
         //titleInput.style.color = "red";
@@ -47,6 +48,8 @@ getSinglePost(singlePostURL);
 function listPost(post){
     titleInput.innerHTML = `${post.title}`;
     bodyInput.innerHTML = `${post.body}`;
+    imgInput.innerHTML = `${post.media}`
+
 }
 
 const updateEndPoint = '/social/posts/'; 
@@ -57,10 +60,12 @@ async function updatePost (id) {
     const updateIdURL = `${API_BASE_URL}${updateEndPoint}${id}`;
     const title = titleInput.value;
     const bodyValue = bodyInput.value;
+    const imgValue = imgInput.value;
     
     const entry = {
         title: title,
         body: bodyValue,
+        media: imgValue,
     };
     
     try {
@@ -85,7 +90,7 @@ async function updatePost (id) {
 
 updateBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    if (titleInput.value && bodyInput.value) {
+    if (titleInput.value && bodyInput.value && imgInput.value) {
         updatePost(id);    
     }
 })

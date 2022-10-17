@@ -1,7 +1,8 @@
+let logoutBtn = document.getElementById("logout")
 class Auth {
 	constructor() {
         document.querySelector("body").style.display = "none";
-		const auth = localStorage.getItem("auth");
+		const auth = localStorage.getItem("accessToken");
 		this.validateAuth(auth);
 	}
 
@@ -17,4 +18,10 @@ class Auth {
 		localStorage.removeItem("auth");
 		window.location.replace("/");
 	}
+
+    
 }
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("username");
+})

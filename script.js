@@ -161,13 +161,16 @@ async function loginUser (url, data) {
         const resonse = await fetch(url, options); 
         console.log(resonse.status);
         const answer = await resonse.json();
-        console.log(answer);
-
-        localStorage.setItem('username', answer.name);
-        localStorage.setItem('accessToken', answer.accessToken);
+        console.log(answer.message);
 
         if (resonse.status === 200){
+            localStorage.setItem('username', answer.name);
+            localStorage.setItem('accessToken', answer.accessToken);
             window.location.href = '/homepage.html'
+        }
+
+        else if (answer.message === "Invalid email or password") {
+            errorDiv.innerHTML = answer.message;
         }
 
     } catch(error) {
