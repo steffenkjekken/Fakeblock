@@ -17,6 +17,24 @@
       <a class="navbar-brand px-md-3 text-secondary mx-0 my-0" href="index.html"><p class="h4">Fakeblock</p></a>
     </div>
   </nav>
+  <div class="modal fade show" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color:rgba(0, 0, 0, 0.5);;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Profile succesfully registered</h5>
+          <button type="button" class="btn-close" data-dismiss="modal">
+          </button>
+        </div>
+        <div class="modal-body">
+          Redirecting you back to our login page automaticlly in
+          <div id="modal-time"></div> seconds
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="window.location.href='index.html';">Take me to login page now</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
       <div class="col-lg-7 text-center text-lg-start">
@@ -25,13 +43,15 @@
       </div>
       <div class="col-md-10 mx-auto col-lg-5">
         <form class="p-4 p-md-5 border rounded-3 bg-light" id="loginForm" action="homepage.html">
-          <div class="form-floating mb-3">
+          <div class="form mb-3" id="mailDiv">
+            <label for="floatingInput">Your Email</label>
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
+            <small id="emailHelp" style="color:red;" class="form-text text-alert"></small>
           </div>
-          <div class="form-floating mb-3" id="passwordDiv">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+          <div class="form mb-3" id="passwordDiv">
             <label for="floatingPassword">Password</label>
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <small id="passwordHelp" style="color:red;" class="form-text text-alert"></small>
           </div>
           <div class="checkbox mb-3">
             <label>
@@ -39,8 +59,8 @@
             </label>
           </div>
           <button class="w-100 btn btn-m btn-primary" id="signIn" type="submit" >Sign in</button>
-          <p class="text-center m-2 fs-6">&#9135;&#9135;&#9135;&#9135;&#9135; or &#9135;&#9135;&#9135;&#9135;&#9135;</p>
-          <button class="w-100 btn btn-m btn-primary" id="firstRegister" type="submit" onclick="firstRegister.id = 'register'; return false;"" >Register</button>
+          <p class="text-center m-2 fs-6" id="orLine">&#9135;&#9135;&#9135;&#9135;&#9135; or &#9135;&#9135;&#9135;&#9135;&#9135;</p>
+          <button class="w-100 btn btn-m btn-primary" id="firstRegister" type="submit" onclick=changeId() return false;"" >Register</button>
         </form>
         <div class="card-body" id="errorMsg"></div>
         <div id="outputFromFormHandler"></div>

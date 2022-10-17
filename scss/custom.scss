@@ -6,22 +6,6 @@ $secondary: rgb(245, 245, 245);
 @import '../node_modules/bootstrap/scss/functions';
 @import '../node_modules/bootstrap/scss/variables';
 
-$new-breakpoints: (
-    sm: 580px,
-    md: 810px,
-    lg: 1000px,
-    xl: 1280px,
-    xxl: 1600px
-);
-
-$grid-breakpoints: map-merge($grid-breakpoints, $new-breakpoints);
-
-$new-container-max-widths: (
-    xl: 1220px,
-    xxl: 1520px
-);
-
-$container-max-widths: map-merge($container-max-widths, $new-container-max-widths);
-
+#exampleModal {background: rgba(0, 0, 0, 0.5);}
 
 @import"../node_modules/bootstrap/scss/bootstrap";

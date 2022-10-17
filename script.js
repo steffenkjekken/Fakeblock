@@ -9,7 +9,11 @@ const passwordInput = document.querySelector("input#floatingPassword")
 const loginButton = document.querySelector("button#signIn");
 const firstRegisterButton = document.querySelector("button#firstRegister");
 const errorDiv = document.querySelector("div#errorMsg");
-const formDiv = document.querySelector("div#passwordDiv")
+const formDiv = document.querySelector("div#mailDiv")
+const emailAlert = document.querySelector("#emailHelp")
+const passwordAlert = document.querySelector("#passwordHelp")
+const or = document.querySelector("#orLine")
+const modal = document.querySelector("#exampleModal")
 
 //console.log (form, emailInput, passwordInput, loginButton, registerButton);
 
@@ -19,19 +23,30 @@ function changeId (){
 
 function addInput (){
     let newInput = document.createElement("div");
-    newInput.className = "form-floating mb-3 mt-3";
-    newInput.innerHTML = `<input type="name" class="form-control" id="floatingName" placeholder="Name">
-    <label for="floatingName">Name</label>`;
-    formDiv.append(newInput);
+    newInput.className = "form mb-3 mt-3";
+    newInput.innerHTML = `<label for="floatingName">Name</label>
+    <input type="name" class="form-control" id="floatingName" placeholder="Name">`
+    let nameHelp = document.createElement("small");
+    nameHelp.innerHTML = `<p>We need name</p>`;
+    Object.assign(nameHelp, {
+        id: "nameHelp",
+        class: "form-text text-alert",
+        style: "color:red;"
+    })
+    newInput.appendChild(nameHelp);
+    formDiv.prepend(newInput);
 }
 
 firstRegisterButton.addEventListener("click", (e) => {
     e.preventDefault();
     addInput();
+    loginButton.remove();
+    or.remove();
     console.log(e)
 }, {once : true}
 );
 
+const nameAlert = document.querySelector("#nameHelp")
 const registerButton = document.querySelector("button#register");
 
 document.body.addEventListener("click", (event) => {
@@ -79,19 +94,32 @@ document.body.addEventListener("click", (event) => {
            const json = await response.json();
            console.log(json);
 
-           if (response.status === 200){
-            window.location.href = '/homepage.html'
-        }
+           if (response.status === 201){
+            modal.style.display ="block";
+            function Timer() {
+                var counter = 5;
+                var myTimer = setInterval(function() {
+                  document.getElementById("modal-time").innerHTML = counter;
+                  counter--;
+                  if (counter < 0) {
+                    clearInterval(myTimer);
+                    window.location="index.html";
+                  }
+                }, 1000);
+              }
+              Timer();
+           }
        }
        catch (error) {
            console.log(error);
        }
-   }
-
-registerUser(registerUrl, loginData);
-}
-}
-);
+    }
+    validateName(name);
+    validateEmail(email);
+    validatePassword(password);
+    registerUser(registerUrl, loginData);
+    }
+});
 
 
 loginButton.addEventListener("click", (event) => {
@@ -146,57 +174,61 @@ async function loginUser (url, data) {
         console.warn(error);
     }
 }
-
+validateEmail(email);
+validatePassword(password);
 loginUser(loginURL, loginData);
-
-/*Få på plass bedre validering når tid*/
-var validated = true; // Assume the best
-var errorMessage = "";
-if (!email) { 
-    errorMessage += "<p>Email missing</p>";
-    validated = false;
-}
-
-if (!password) { 
-    errorMessage += "<p>Password missing</p>";
-    validated = false;
-}
-
-if (!validated){
-    errorDiv.innerHTML = errorMessage;
-    errorDiv.style.color = 'red';
-} 
-
-
-else {
-        writeData(loginData);
-
-        sessionStorage.clear();
-        form.reset();
-        console.log ("Form submitted");
-
-        errorDiv.innerHTML = "<p style='color: green'>Form submitted</p>";
-        // form.submit(); // Comment out to prevent form from _actually_ being submitted
-    }
-}
-);
+});
 
 emailInput.addEventListener('keyup', addToSessionStorage); 
 passwordInput.addEventListener('keyup', addToSessionStorage);
 
 function addToSessionStorage() {
     /** @todo secure the data a bit before setting Session Storage */
-    //console.log(this.name, this.value);
+    console.log(this.name, this.value);
     sessionStorage.setItem(this.name, this.value); 
 }
 
-function writeData (messageData) {
-    console.log(messageData);
-    const out = document.querySelector("div#outputFromFormHandler");
-    console.log(out);
-    const txt = `<div>
-    <p>Email:<br>${messageData.email}</p>
-    <p>Password:<br>${messageData.password}</p>
-</div>`;
-    out.innerHTML = txt;
+let validated = true;
+let errorMessage = ""
+
+function validateName(name) {
+    if ( name.match(/^[a-zA-Z0-9_]+$/)) {
+            nameHelp.innerHTML = "";
+            validated = true
+        } else {
+            nameHelp.innerHTML = "<p>The name value must not contain punctuation symbols apart from underscore (_).</p>";
+            validated = false
+        }
+        if (!name) { 
+            nameHelp.innerHTML = "<p>Name missing</p>";
+            validated = false;
+    }
+}
+
+function validateEmail(email) {
+    if ( email.match( /(noroff.no|stud.noroff.no)/ ) ) {
+        emailAlert.innerHTML = "";
+        validated = true
+        } else {
+        emailAlert.innerHTML = "<p>You need a noroff email to login</p>";
+        validated = false
+        }
+        if (!email) { 
+        emailAlert.innerHTML = "<p>Email missing</p>";
+        validated = false;
+    }
+}
+
+function validatePassword(password) {
+    if ( password.match(/[a-zA-Z0-9]{8,}/) ) {
+        passwordAlert.innerHTML = "";
+        validated = true
+        } else {
+        passwordAlert.innerHTML = "<p>The password value must be at least 8 characters.</p>";
+        validated = false
+        }
+        if (!password) { 
+        passwordAlert.innerHTML = "<p>Password missing</p>";
+        validated = false;
+    }
 }
