@@ -3,6 +3,8 @@ const searchParams = new URLSearchParams(queryString);
 const id = searchParams.get("id");
 console.log(id)
 
+const user = localStorage.getItem('username');
+
 const API_BASE_URL = "https://nf-api.onrender.com/api/v1";
 const singlePostsEndpoint = '/social/posts/';
 const author = "?_author=true"; // GET
@@ -47,6 +49,17 @@ function listPost(post) {
     //console.log (posts);
     outDiv.innerHTML = "";
     let newDivs = "";
+
+    const editDelete = `<div class="dropdown d-flex justify-content-end pt-2">
+        <button class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          Update
+        </button>
+        <div class="dropdown-menu" aria-labelledby="Edit">
+          <a href="updatepost.html?id=${post.id}" class="btn btn-primary dropdown-item" id="updateBtn" data-update="${post.id}">Edit</a>
+          <button class="dropdown-item" id="deleteBtn" data-delete="${post.id}">Delete</button>
+        </div>
+      </div>
+      `
         //console.log(object);      
         newDivs += `
         <div class="card mb-3 border-0">
@@ -60,6 +73,7 @@ function listPost(post) {
                 <div class="d-flex justify-content-between">
                 <p class="card-text"><small>Author: ${post.author.name}</small></p>
                 <p class="small">${formatedDate}</p>
+                ${user === post.author.name ? editDelete :""}
                 </div>
             </div>
         </div>`;
@@ -72,9 +86,44 @@ function listPost(post) {
     
     outDiv.innerHTML = newDivs;
 
+    const deleteBtn = document.querySelectorAll("button#deleteBtn")
+
+    deleteBtn.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-delete");
+            if ( confirm('Are you sure you want to delete post?')){
+                deletePosts(API_BASE_URL + singlePostsEndpoint + id)
+                }
+    
+        })
+    });
+
+};
+
+async function deletePosts (url) {
+    try {
+        const accessToken = localStorage.getItem('accessToken'); 
+        //console.log(accessToken)
+        const options = {
+            method: 'DELETE', 
+            headers: {
+                 "Content-Type": "application/json",
+                Authorization: `Bearer ${accessToken}`,
+            },
+        };
+        //console.log(url, options);
+
+        const response = await fetch(url, options); 
+        console.log(response);
+        const posts = await response.json();
+        console.log(posts);
+        window.location.href="homepage.html";
+
+    } catch(error) {
+        console.warn(error);
+    }
 };
 
 
 getSinglePost(singlePostURL);
-
 

@@ -103,7 +103,9 @@ const listData = (profile) => {
     deleteBtn.forEach(btn => {
         btn.addEventListener("click", () => {
             const id = btn.getAttribute("data-delete");
-            deletePosts(getAllPostsURL + "/" + id)
+            if ( confirm('Are you sure you want to delete post?')){
+                deletePosts(getAllPostsURL + "/" + id)
+                }
         })
     });
 };

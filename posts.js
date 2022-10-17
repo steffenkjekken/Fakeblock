@@ -80,7 +80,9 @@ const listPosts = (posts, out) => {
     deleteBtn.forEach(btn => {
         btn.addEventListener("click", () => {
             const id = btn.getAttribute("data-delete");
+            if ( confirm('Are you sure you want to delete post?')){
             deletePosts(getAllPostsURL + "/" + id)
+            }
         })
     });
 
