@@ -161,7 +161,7 @@ async function loginUser (url, data) {
         const resonse = await fetch(url, options); 
         console.log(resonse.status);
         const answer = await resonse.json();
-        console.log(answer.message);
+        console.log(answer.errors[0].message);
 
         if (resonse.status === 200){
             localStorage.setItem('username', answer.name);
@@ -169,8 +169,8 @@ async function loginUser (url, data) {
             window.location.href = '/homepage.html'
         }
 
-        else if (answer.message === "Invalid email or password") {
-            errorDiv.innerHTML = answer.message;
+        else if (answer.errors[0].message === "Invalid email or password") {
+            errorDiv.innerHTML = answer.errors[0].message;
         }
 
     } catch(error) {
